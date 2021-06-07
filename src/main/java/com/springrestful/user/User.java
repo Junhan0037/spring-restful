@@ -1,5 +1,6 @@
 package com.springrestful.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -9,6 +10,7 @@ import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
+//@JsonIgnoreProperties(value = {"password", "ssn"})
 public class User {
 
     private Integer id;
@@ -18,5 +20,11 @@ public class User {
 
     @Past
     private LocalDateTime joinDate;
+
+    @JsonIgnore
+    private String password;
+
+    @JsonIgnore
+    private String ssn;
 
 }
